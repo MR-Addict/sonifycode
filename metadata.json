@@ -1,0 +1,6 @@
+{
+  "name": "SonifyCode",
+  "description": "Convert your code into musical compositions and export them. Features a dual-pane editor and visualizer.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

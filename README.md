@@ -1,20 +1,55 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# SONIFYSYS (SonifyCode)
 
-# Run and deploy your AI Studio app
+Turn your code into music! SONIFYSYS is an interactive web application that parses your source code and translates it into dynamic musical sequences using Tone.js and Shiki.
 
-This contains everything you need to run your app locally.
+## Features
 
-View your app in AI Studio: https://ai.studio/apps/d6a6f6ee-0b48-44a0-a05e-ddfe95a15ca0
+- **Advanced Code Parsing**: Powered by [Shiki](https://shiki.style/), the same engine running under VS Code, it analyzes code tokens with absolute precision, mapping keywords, variables, primitives, and punctuation to specific musical elements.
+- **Auto Language Detection**: Uses [Flourite](https://github.com/shikijs/shiki/tree/main/packages/flourite) to instantly detect the programming language of your snippets.
+- **Multiple Synth Presets**:
+  - `C-01 FM BASE`: Classic FM Synthesis
+  - `S-02 SAW DELAY`: Synthwave vibe with sawtooth waves and delay
+  - `A-03 REVERB SQ`: Lush Ambient landscapes with intense reverb
+  - `R-04 8BIT PULSE`: Retro 8-bit pulse/square waves
+- **Export Capabilities**:
+  - **MIDI Export**: Export the generated notes as standard `.mid` sequence files.
+  - **Audio Bounce**: Render the sequence directly to an offline `.wav` file.
+- **Real-time Visualizer**: Watch the abstract syntax tree and token streams materialize as visuals synchronized with the playback.
 
-## Run Locally
+## How it works
 
-**Prerequisites:**  Node.js
+The internal engine performs sequential parsing and mapping:
+1. Identify the language.
+2. Tokenize the script line-by-line via TextMate grammars.
+3. Map tokens dynamically:
+   - **Keywords**: Map to Chords.
+   - **Numbers**: Map to Kicks.
+   - **Strings / Variables**: Map to Melodic notes across predefined scales using token-hashing.
+   - **Punctuation**: Map to Hi-hats and percussive tops.
+4. Schedule everything precisely on `Tone.Transport`.
 
+## Development
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+```bash
+# Install dependencies
+npm install
+
+# Start the dev server
+npm run dev
+
+# Build for production
+npm run build
+```
+
+## Technologies Used
+
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [Tone.js](https://tonejs.github.io/)
+- [Shiki](https://shiki.style/) 
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Framer Motion](https://www.framer.com/motion/)
+
+## License
+
+MIT
